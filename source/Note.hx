@@ -152,6 +152,11 @@ class Note extends FlxSprite
 					noMissAnimation = true;
 				case 'GF Sing':
 					gfNote = true;
+				case 'Kill Note':
+					ignoreNote = mustPress;
+					reloadNote('KILL');
+				case 'Must Hit Note':
+					reloadNote('MUSTHIT');
 			}
 			noteType = value;
 		}

@@ -4524,7 +4524,12 @@ class PlayState extends MusicBeatState
 			vocals.volume = 0;
 			doDeathCheck(true);
 		}
-
+		
+		switch(daNote.noteType) {
+			case 'Must Hit Note':
+				health = 0;
+		}
+			
 		//For testing purposes
 		//trace(daNote.missHealth);
 		songMisses++;
@@ -4656,6 +4661,12 @@ class PlayState extends MusicBeatState
 			{
 				FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.hitsoundVolume);
 			}
+
+			switch(note.noteType) {
+				case 'Kill Note':
+					health = -0.1;
+			}
+			
 
 			if(note.hitCausesMiss) {
 				noteMiss(note);
